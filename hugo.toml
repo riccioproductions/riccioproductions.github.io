@@ -1,0 +1,20 @@
+baseURL = 'https://riccioproductions.github.io/'
+languageCode = 'it'
+title = 'Riccio Productions - Portfolio'
+theme = 'gallery'
+
+[params]
+  # La documentazione dice che defaultTheme è supportato
+  defaultTheme = "dark" 
+
+  # SEZIONE CRITICA: La documentazione richiede questa esatta struttura per le icone
+[params.socialIcons]
+   instagram = "https://www.instagram.com/riccio.productions"
+   email = "mailto:riccio.prod@gmail.com"
+	
+[build]
+  writeStats = true
+
+[[cascade]]
+  [cascade.build]
+    publishResources = false

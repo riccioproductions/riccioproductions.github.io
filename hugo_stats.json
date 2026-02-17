@@ -1,0 +1,45 @@
+{
+  "htmlElements": {
+    "tags": [
+      "a",
+      "body",
+      "div",
+      "figure",
+      "footer",
+      "h1",
+      "h2",
+      "head",
+      "header",
+      "hgroup",
+      "html",
+      "img",
+      "link",
+      "main",
+      "meta",
+      "p",
+      "path",
+      "script",
+      "section",
+      "style",
+      "svg",
+      "title"
+    ],
+    "classes": [
+      "btn",
+      "btn-square",
+      "card",
+      "dark",
+      "featured",
+      "featured-card",
+      "galleries",
+      "gallery",
+      "gallery-item",
+      "lazyload",
+      "prose",
+      "social-icons"
+    ],
+    "ids": [
+      "gallery"
+    ]
+  }
+}
