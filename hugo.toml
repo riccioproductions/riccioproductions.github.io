@@ -1,6 +1,6 @@
 baseURL = 'https://riccioproductions.github.io/'
 languageCode = 'it'
-title = 'Riccio Productions - Portfolio'
+title = 'Riccio Productions Portfolio'
 theme = 'gallery'
 timeout = "600s"
 
