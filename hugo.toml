@@ -4,7 +4,7 @@ defaultContentLanguage = 'it'
 title = 'Riccio Productions'
 theme = 'gallery'
 timeout = "600s"
-enableRobotsTXT = true
+# enableRobotsTXT = true
 
 [params]
   # La documentazione dice che defaultTheme è supportato
