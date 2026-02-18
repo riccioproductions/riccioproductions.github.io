@@ -7,17 +7,13 @@ timeout = "600s"
 # enableRobotsTXT = true
 
 [params]
-  # La documentazione dice che defaultTheme è supportato
   defaultTheme = "dark" 
   logo = "logo.png"
-  # Prova tutte le varianti comuni dei temi Hugo
   favicon = "/favicon.ico"
   icon = "/favicon.ico"
   custom_favicon = "/favicon.ico"
-  # Se il tema supporta un logo per la dark mode, metti lo stesso o uno diverso
   logo_dark = "logo.png"
 
-  # SEZIONE CRITICA: La documentazione richiede questa esatta struttura per le icone
 [params.socialIcons]
    instagram = "https://www.instagram.com/riccio.productions"
    email = "mailto:riccio.prod@gmail.com"
