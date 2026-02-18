@@ -1,0 +1,10 @@
+photoCount:
+  other: "{{ . }} foto"
+  one: "{{ . }} foto"
+
+albumCount:
+  other: "{{ .count }} album"
+  one: "{{ .count }} album"
+
+viewAll:
+  other: "Vedi tutto"
