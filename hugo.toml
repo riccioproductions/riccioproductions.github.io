@@ -4,17 +4,15 @@ defaultContentLanguage = 'it'
 title = 'Riccio Productions'
 theme = 'gallery'
 timeout = "600s"
+
 enableRobotsTXT = true
+
+disableKinds = ["taxonomy", "term"]
 
 [sitemap]
   changefreq = 'weekly'
   filename = 'sitemap.xml'
   priority = 0.5
-  disable = false
- 
-[taxonomies]
-  category = ""
-  tag = ""
 
 [params]
   defaultTheme = "dark" 
@@ -27,7 +25,7 @@ enableRobotsTXT = true
 [params.socialIcons]
    instagram = "https://www.instagram.com/riccio.productions"
    email = "mailto:riccio.prod@gmail.com"
-	
+    
 [build]
   writeStats = true
 
