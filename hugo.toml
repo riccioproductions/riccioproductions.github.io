@@ -1,9 +1,11 @@
 baseURL = 'https://riccioproductions.github.io/'
 languageCode = 'it'
-defaultContentLanguace = 'it'
+defaultContentLanguage = 'it'
 title = 'Riccio Productions'
 theme = 'gallery'
 timeout = "600s"
+enableRobotsTXT = true
+
 
 [params]
   # La documentazione dice che defaultTheme è supportato
