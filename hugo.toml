@@ -8,6 +8,9 @@ timeout = "600s"
 [params]
   # La documentazione dice che defaultTheme è supportato
   defaultTheme = "dark" 
+  logo = "logo.png"
+  # Se il tema supporta un logo per la dark mode, metti lo stesso o uno diverso
+  logo_dark = "logo.png"
 
   # SEZIONE CRITICA: La documentazione richiede questa esatta struttura per le icone
 [params.socialIcons]
