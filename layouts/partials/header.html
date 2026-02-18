@@ -1,4 +1,4 @@
-<header style="display: flex; justify-content: space-between; align-items: center; padding: 10px 20px;">
+<header style="display: flex; justify-content: space-between; align-items: center; padding: 40px 20px 20px 20px;">
   
   <div style="flex: 1; display: flex; justify-content: flex-start;">
     {{ with .Parent }}
@@ -12,7 +12,7 @@
 
   <div style="flex: 2; display: flex; justify-content: center;">
     {{ if .IsHome }}
-      <a href="{{ .Site.Home.RelPermalink }}" style="background: transparent; border: none; padding: 0;">
+      <a href="{{ .Site.Home.RelPermalink }}" style="background: transparent; border: none; padding: 0; margin-bottom: 30px;">
         <img src="/images/logo.png?v=2" alt="Riccio Productions" style="max-height: 50px; width: auto; vertical-align: middle;">
       </a>
     {{ end }}
@@ -35,15 +35,16 @@
 </header>
 
 <style>
-  /* Rimuove lo spazio sopra il contenitore principale */
+  /* Rimuove lo spazio forzato sopra il contenuto per gestire tutto dall'header */
   main {
     padding-top: 0 !important;
     margin-top: 0 !important;
   }
 
   h1 {
-    margin-top: -40px !important; 
-    text-align: center; /* Centra anche il titolo Portfolio per coerenza */
+    /* Ho rimosso il margine negativo per dare respiro al logo */
+    margin-top: -50px !important; 
+    text-align: center; 
   }
 
   header ul {
