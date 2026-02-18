@@ -1,4 +1,4 @@
-<header style="display: flex; justify-content: space-between; align-items: center; padding: 40px 20px 20px 20px;">
+<header style="display: flex; justify-content: space-between; align-items: center; padding: 40px 20px 0px 20px;">
   
   <div style="flex: 1; display: flex; justify-content: flex-start;">
     {{ with .Parent }}
@@ -12,7 +12,7 @@
 
   <div style="flex: 2; display: flex; justify-content: center;">
     {{ if .IsHome }}
-      <a href="{{ .Site.Home.RelPermalink }}" style="background: transparent; border: none; padding: 0; margin-bottom: 30px;">
+      <a href="{{ .Site.Home.RelPermalink }}" style="background: transparent; border: none; padding: 0;">
         <img src="/images/logo.png?v=2" alt="Riccio Productions" style="max-height: 50px; width: auto; vertical-align: middle;">
       </a>
     {{ end }}
@@ -41,11 +41,10 @@
   }
 
   h1 {
-    /* Offset superiore (avvicina al logo) */
+    /* Offset superiore */
     margin-top: -50px !important; 
     
-    /* Offset inferiore (distanzia dal contenuto sotto) */
-    /* Regola questo valore per rispecchiare visivamente lo spazio sopra */
+    /* Offset inferiore */
     margin-bottom: 0px !important; 
     
     text-align: center; 
@@ -55,6 +54,28 @@
     margin: 0;
     padding: 0;
   }
+
+  img {
+    -webkit-touch-callout: none !important;
+    
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+    
+    -webkit-user-drag: none !important;
+    user-drag: none !important;
+
+    pointer-events: auto !important;
+  }
 </style>
+
+<script>
+  document.addEventListener('contextmenu', function(e) {
+    if (e.target.tagName === 'IMG') {
+      e.preventDefault();
+    }
+  }, false);
+</script>
 
 {{ partial "menu.html" . }}

@@ -4,7 +4,17 @@ defaultContentLanguage = 'it'
 title = 'Riccio Productions'
 theme = 'gallery'
 timeout = "600s"
-# enableRobotsTXT = true
+enableRobotsTXT = true
+
+[sitemap]
+  changefreq = 'weekly'
+  filename = 'sitemap.xml'
+  priority = 0.5
+  disable = false
+ 
+[taxonomies]
+  category = ""
+  tag = ""
 
 [params]
   defaultTheme = "dark" 
