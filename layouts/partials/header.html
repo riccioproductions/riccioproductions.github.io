@@ -1,31 +1,39 @@
-<header>
-  {{ with .Parent }}
-    <a class="btn btn-square" href="{{ .RelPermalink | default .Site.Home.RelPermalink }}" title="{{ .Title }}">
-      <svg width="24" height="24" data-slot="icon" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <path clip-rule="evenodd" fill-rule="evenodd" d="M11.03 3.97a.75.75 0 0 1 0 1.06l-6.22 6.22H21a.75.75 0 0 1 0 1.5H4.81l6.22 6.22a.75.75 0 1 1-1.06 1.06l-7.5-7.5a.75.75 0 0 1 0-1.06l7.5-7.5a.75.75 0 0 1 1.06 0Z"></path>
-      </svg>
-    </a>
-  {{ else }}
-    <a class="btn" href="{{ .Site.Home.RelPermalink }}" style="background: transparent; border: none; padding: 0; margin-left: 20px; margin-top: 20px;">
-      <img src="/images/logo.png?v=2" alt="Riccio Productions" style="max-height: 50px; width: auto; vertical-align: middle;">
-    </a>
-  {{ end }}
+<header style="display: flex; justify-content: space-between; align-items: center; padding: 10px 20px;">
+  
+  <div style="flex: 1; display: flex; justify-content: flex-start;">
+    {{ with .Parent }}
+      <a class="btn btn-square" href="{{ .RelPermalink | default .Site.Home.RelPermalink }}" title="{{ .Title }}">
+        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path clip-rule="evenodd" fill-rule="evenodd" d="M11.03 3.97a.75.75 0 0 1 0 1.06l-6.22 6.22H21a.75.75 0 0 1 0 1.5H4.81l6.22 6.22a.75.75 0 1 1-1.06 1.06l-7.5-7.5a.75.75 0 0 1 0-1.06l7.5-7.5a.75.75 0 0 1 1.06 0Z"></path>
+        </svg>
+      </a>
+    {{ end }}
+  </div>
 
-  {{ if site.Menus.main }}
-    <ul>
-      <li>
-        <button class="btn btn-square" id="menu-toggle" aria-expanded="false" type="button" title="{{ T "menu" }}">
-          <svg class="icon-menu" width="24" height="24" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path clip-rule="evenodd" fill-rule="evenodd" d="M3 6.75A.75.75 0 0 1 3.75 6h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 6.75ZM3 12a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 12Zm0 5.25a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1-.75-.75Z"></path>
-          </svg>
-          <svg class="icon-close hidden" width="24" height="24" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path clip-rule="evenodd" fill-rule="evenodd" d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z"></path>
-          </svg>
-        </button>
-      </li>
-    </ul>
-  {{ end }}
+  <div style="flex: 2; display: flex; justify-content: center;">
+    {{ if .IsHome }}
+      <a href="{{ .Site.Home.RelPermalink }}" style="background: transparent; border: none; padding: 0;">
+        <img src="/images/logo.png?v=2" alt="Riccio Productions" style="max-height: 50px; width: auto; vertical-align: middle;">
+      </a>
+    {{ end }}
+  </div>
+
+  <div style="flex: 1; display: flex; justify-content: flex-end;">
+    {{ if site.Menus.main }}
+      <ul>
+        <li style="list-style: none;">
+          <button class="btn btn-square" id="menu-toggle" aria-expanded="false" type="button" title="{{ T "menu" }}">
+            <svg class="icon-menu" width="24" height="24" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path clip-rule="evenodd" fill-rule="evenodd" d="M3 6.75A.75.75 0 0 1 3.75 6h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 6.75ZM3 12a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 12Zm0 5.25a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1-.75-.75Z"></path>
+            </svg>
+          </button>
+        </li>
+      </ul>
+    {{ end }}
+  </div>
+
 </header>
+
 <style>
   /* Rimuove lo spazio sopra il contenitore principale */
   main {
@@ -34,7 +42,14 @@
   }
 
   h1 {
-    margin-top: -40px !important; /* Prova -20px o -30px se serve */
+    margin-top: -40px !important; 
+    text-align: center; /* Centra anche il titolo Portfolio per coerenza */
+  }
+
+  header ul {
+    margin: 0;
+    padding: 0;
   }
 </style>
+
 {{ partial "menu.html" . }}
