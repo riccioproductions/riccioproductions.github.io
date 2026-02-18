@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Eventi on Riccio Productions - Portfolio</title>
+    <title>Eventi on Riccio Productions</title>
     <link>http://localhost:1313/eventi/</link>
-    <description>Recent content in Eventi on Riccio Productions - Portfolio</description>
+    <description>Recent content in Eventi on Riccio Productions</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>it</language>
     <lastBuildDate>Sat, 17 Feb 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/eventi/index.xml" rel="self" type="application/rss+xml" />
