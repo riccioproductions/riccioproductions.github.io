@@ -11,3 +11,5 @@ Cerco sempre di dare un tocco artistico a quello che realizzo, esaltando la real
 Realizzo foto e video su richiesta, sia per privati che per attività, e organizzo anche shooting personali per chi vuole qualcosa di più curato e pensato nei dettagli. Ogni lavoro nasce dal confronto: capire cosa vuoi comunicare è il primo passo per costruire qualcosa che funzioni davvero.
 
 Se ti piace il mio stile o vuoi semplicemente avere più informazioni, puoi contattarmi via [email](mailto:riccio.prod@gmail.com) o su [Instagram](https://www.instagram.com/riccio.productions).
+
+Opero principalmente nel Cilento, in provincia di Salerno, Campania.

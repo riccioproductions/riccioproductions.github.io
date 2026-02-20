@@ -3,7 +3,6 @@
     "tags": [
       "a",
       "body",
-      "button",
       "div",
       "figure",
       "footer",
@@ -14,20 +13,16 @@
       "hgroup",
       "html",
       "img",
-      "li",
       "link",
       "main",
-      "menu",
       "meta",
       "p",
       "path",
       "script",
       "section",
-      "span",
       "style",
       "svg",
-      "title",
-      "ul"
+      "title"
     ],
     "classes": [
       "btn",
@@ -39,16 +34,12 @@
       "galleries",
       "gallery",
       "gallery-item",
-      "hidden",
-      "icon-menu",
       "lazyload",
       "prose",
       "social-icons"
     ],
     "ids": [
-      "gallery",
-      "menu",
-      "menu-toggle"
+      "gallery"
     ]
   }
 }
