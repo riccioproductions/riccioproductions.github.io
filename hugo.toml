@@ -2,7 +2,6 @@ baseURL = 'https://riccioproductions.github.io/'
 languageCode = 'it'
 defaultContentLanguage = 'it'
 title = 'Riccio Productions'
-description = "Riccio Productions è un progetto di fotografia e videomaking, nato dalla voglia di trasformare una passione in qualcosa di concreto."
 copyright = "© 2026 Riccio Productions. Tutti i diritti riservati."
 theme = 'gallery'
 timeout = "600s"
@@ -17,6 +16,7 @@ disableKinds = ["taxonomy", "term"]
   priority = 0.5
 
 [params]
+  description = "Riccio Productions è un progetto di fotografia e videomaking, nato dalla voglia di trasformare una passione in qualcosa di concreto."
   defaultTheme = "dark" 
   logo = "logo.png"
   favicon = "/favicon.ico"
