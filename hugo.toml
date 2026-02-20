@@ -34,3 +34,16 @@ disableKinds = ["taxonomy", "term"]
 [[cascade]]
   [cascade.build]
     publishResources = false
+	
+[menu]
+  [[menu.main]]
+    identifier = "portfolio"
+    name = "Portfolio"
+    url = "/"
+    weight = 10
+
+  [[menu.main]]
+    identifier = "about"
+    name = "Chi sono"
+    url = "/about/"
+    weight = 20
