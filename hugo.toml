@@ -2,6 +2,7 @@ baseURL = 'https://riccioproductions.github.io/'
 languageCode = 'it'
 defaultContentLanguage = 'it'
 title = 'Riccio Productions'
+copyright = "© 2026 Riccio Productions. Tutti i diritti riservati."
 theme = 'gallery'
 timeout = "600s"
 
