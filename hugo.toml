@@ -6,7 +6,7 @@ copyright = "© 2026 Riccio Productions. Tutti i diritti riservati."
 theme = 'gallery'
 timeout = "600s"
 
-enableRobotsTXT = true
+#enableRobotsTXT = true
 
 disableKinds = ["taxonomy", "term"]
 
