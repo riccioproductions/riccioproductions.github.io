@@ -18,9 +18,7 @@
         {{ end }}
       {{ end }}
       
-      <a href="{{ .URL }}" style="text-decoration: none; color: inherit; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 500; {{ if $isActive }} border-bottom: 2px solid currentColor; padding-bottom: 3px; {{ end }}">
-        {{ .Name }}
-      </a>
+      <a href="{{ .URL }}" style="text-decoration: none; color: inherit; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 500; padding-left: 2px; {{ if $isActive }} border-bottom: 2px solid currentColor; padding-bottom: 3px; {{ end }}">{{ .Name }}</a>
     {{ end }}
   </div>
 
