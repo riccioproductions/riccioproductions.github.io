@@ -1,0 +1,60 @@
+@import "normalize";
+@import "colors";
+@import "styles";
+@import "photoswipe/photoswipe";
+@import "photoswipe/photoswipe-dynamic-caption-plugin";
+@import "custom";
+
+.lazyload,
+.lazyloading {
+  opacity: 0;
+}
+
+.lazyloaded {
+  opacity: 1;
+  transition: opacity 300ms;
+}
+
+img.lazyload:not([src]) {
+  visibility: hidden;
+}
+
+/* ==========================================================================
+   TITOLO PORTFOLIO NELLA BANDA INFERIORE DEDICATA
+   ========================================================================== */
+.pswp__portfolio-title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60px; /* Deve coincidere esattamente con il paddingFn del JS */
+  
+  /* Flexbox per centrare il testo verticalmente e orizzontalmente */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: 0.5px;
+  padding: 0 20px;
+  box-sizing: border-box;
+  
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  
+  pointer-events: none;
+  z-index: 100;
+}
+
+/* Sincronizzazione per smartphone */
+@media (max-width: 600px) {
+  .pswp__portfolio-title {
+    height: 50px; /* Sincronizzato con i 50px del paddingFn mobile */
+    font-size: 0.85rem;
+  }
+}
