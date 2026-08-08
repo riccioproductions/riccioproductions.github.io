@@ -1,6 +1,6 @@
 <header style="display: flex; flex-direction: column; align-items: center; padding: 15px 20px 0px 20px;">
   
- <div style="display: flex; justify-content: center; gap: 30px; width: 100%; margin-bottom: 25px;">
+ <div style="display: flex; justify-content: center; gap: 30px; width: 100%; margin-bottom: 45px;">
     {{ $currentPage := . }}
     
     {{ range site.Menus.main }}
@@ -35,8 +35,8 @@
     </div>
 
     <div style="flex: 2; display: flex; justify-content: center;">
-      <img src="/images/logo.png?v=2" alt="Riccio Productions" style="max-height: 50px; width: auto; vertical-align: middle;">
-    </div>
+  <img src="/images/logo.png?v=2" alt="Riccio Productions" style="width: 240px; max-width: 100%; height: auto; vertical-align: middle;">
+</div>
 
     <div style="flex: 1;"></div>
 
@@ -45,22 +45,27 @@
 </header>
 
 <style>
-  main {
-    padding-top: 0 !important;
-    margin-top: 0 !important;
+  header { margin-bottom: 0px !important; padding-bottom: 0px !important; }
+  main { margin-top: 0px !important; padding-top: 0px !important; }
+
+  hgroup {
+    margin-top: 30px !important; 
+    margin-bottom: 30px !important; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
   }
 
-  h1 {
-    margin-top: 0px !important; 
-    margin-bottom: 0px !important; 
-    text-align: center; 
+  hgroup h1 {
+    font-size: 1.6rem !important; 
+    font-weight: 500 !important;
+    margin: 0px !important; 
+    padding: 0px !important;
+    text-align: center;
   }
 
-  header ul {
-    margin: 0;
-    padding: 0;
-  }
-
+  header ul { margin: 0; padding: 0; }
   img {
     -webkit-touch-callout: none !important;
     -webkit-user-select: none !important;
