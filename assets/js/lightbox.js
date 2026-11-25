@@ -73,7 +73,12 @@ lightbox.on("uiRegister", () => {
         pswp.on("change", () => {
           const currElement = pswp.currSlide?.data?.element;
           const title = currElement ? currElement.getAttribute("title") : "";
-          el.innerHTML = title || "";
+          el.textContent = "";
+          if (title) {
+            const span = document.createElement("span");
+            span.textContent = title;
+            el.appendChild(span);
+          }
         });
       }
     });
