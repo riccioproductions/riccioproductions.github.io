@@ -1,0 +1,56 @@
+<section class="gallery">
+  <noscript><style>#gallery{visibility:visible!important;height:auto!important;overflow:visible!important}</style></noscript>
+  <div id="gallery" style="visibility: hidden; height: 1px; overflow: hidden">
+    {{ $images := slice }}
+    {{ range $image := where (.Resources.ByType "image") "Params.hidden" "ne" true }}
+      {{ $title := "" }}
+      {{ $date := "" }}
+      {{ with $image.Exif }}
+        {{ $date = .Date }}
+        {{ with .Tags.ImageDescription }}{{ $title = . }}{{ end }}
+      {{ end }}
+      {{ if ne $image.Title $image.Name }}{{ $title = $image.Title }}{{ end }}
+      {{ if $image.Params.Date }}{{ $date = time $image.Params.Date }}{{ end }}
+      {{/* Chiave di ordinamento "naturale": natura-2 prima di natura-10 */}}
+      {{ $key := "" }}
+      {{ range findRE `\d+|\D+` $image.Name }}
+        {{ if findRE `^\d+$` . }}
+          {{ $key = printf "%s%s%s" $key (strings.Repeat (sub 8 (len .)) "0") . }}
+        {{ else }}
+          {{ $key = printf "%s%s" $key (lower .) }}
+        {{ end }}
+      {{ end }}
+      {{ $images = $images | append (dict
+        "Name" $image.Name
+        "Key" $key
+        "Title" $title
+        "Date" $date
+        "image" $image
+        "Params" $image.Params
+        )
+      }}
+    {{ end }}
+    {{ $publishResources := default true .Params.build.publishResources }}
+    {{ $albumTitle := .Title }}
+    {{ $sortBy := .Params.sort_by | default "Key" }}
+    {{ range $i, $item := sort $images $sortBy (.Params.sort_order | default "asc") }}
+      {{ $image := .image }}
+      {{ $thumbnail := $image.Filter (slice images.AutoOrient (images.Process "fit 600x600")) }}
+      {{ $thumb2x := $image.Filter (slice images.AutoOrient (images.Process "fit 1200x1200")) }}
+      {{ $full := $image.Filter (slice images.AutoOrient (images.Process "fit 1600x1600")) }}
+      {{ $color := index $thumbnail.Colors 0 | default "transparent" }}
+      {{ $alt := .Title | default (printf "%s - foto %d" $albumTitle (add $i 1)) }}
+      <a class="gallery-item" href="{{ if $publishResources }}{{ $image.RelPermalink }}{{ else }}{{ $full.RelPermalink }}{{ end }}" data-pswp-src="{{ $full.RelPermalink }}" data-pswp-width="{{ $full.Width }}" data-pswp-height="{{ $full.Height }}" data-pswp-target="{{ $image.Name | urlize }}"{{ with .Title }} title="{{ . }}"{{ end }} itemscope itemtype="https://schema.org/ImageObject" style="aspect-ratio: {{ $thumbnail.Width }} / {{ $thumbnail.Height }}">
+        <figure style="background-color: {{ $color }}; aspect-ratio: {{ $thumbnail.Width }} / {{ $thumbnail.Height }}">
+          <img width="{{ $thumbnail.Width }}" height="{{ $thumbnail.Height }}" src="{{ $thumbnail.RelPermalink }}" srcset="{{ $thumbnail.RelPermalink }} {{ $thumbnail.Width }}w, {{ $thumb2x.RelPermalink }} {{ $thumb2x.Width }}w" sizes="(max-width: 700px) 100vw, 45vw" loading="lazy" decoding="async" alt="{{ $alt }}" />
+        </figure>
+        <meta itemprop="contentUrl" content="{{ if $publishResources }}{{ $image.RelPermalink }}{{ else }}{{ $full.RelPermalink }}{{ end }}" />
+        {{ with site.Params.Author }}
+          <span itemprop="creator" itemtype="https://schema.org/Person" itemscope>
+            <meta itemprop="name" content="{{ site.Params.Author.name }}" />
+          </span>
+        {{ end }}
+      </a>
+    {{ end }}
+  </div>
+</section>

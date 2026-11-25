@@ -1,0 +1,9 @@
+{{ with site.Params.socialIcons }}
+<section class="cta">
+  <p>Hai un'idea, un evento o un progetto da raccontare?</p>
+  <div class="cta-actions">
+    {{ with .email }}<a class="cta-btn" href="{{ . }}">Scrivimi una email</a>{{ end }}
+    {{ with .instagram }}<a class="cta-btn cta-btn--ghost" href="{{ . }}" target="_blank" rel="noopener">Instagram</a>{{ end }}
+  </div>
+</section>
+{{ end }}

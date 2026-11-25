@@ -1,87 +1,25 @@
-<header style="display: flex; flex-direction: column; align-items: center; padding: 15px 20px 0px 20px;">
-  
- <div style="display: flex; justify-content: center; gap: 30px; width: 100%; margin-bottom: 45px;">
-    {{ $currentPage := . }}
-    
+{{ $isAbout := hasPrefix .RelPermalink "/about/" }}
+<header>
+  <nav class="site-nav" aria-label="Principale">
     {{ range site.Menus.main }}
-      {{ $isActive := eq $currentPage.RelPermalink .URL }}
-      
-      {{ if eq .URL "/" }}
-        {{ if and (not (in $currentPage.RelPermalink "/about/")) (not (in $currentPage.RelPermalink "/chi-sono/")) }}
-          {{ $isActive = true }}
-        {{ end }}
-      {{ end }}
-
-      {{ if ne .URL "/" }}
-        {{ if in $currentPage.RelPermalink .URL }}
-          {{ $isActive = true }}
-        {{ end }}
-      {{ end }}
-      
-      <a href="{{ .URL }}" style="text-decoration: none; color: inherit; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 500; padding-left: 2px; {{ if $isActive }} border-bottom: 2px solid currentColor; padding-bottom: 3px; {{ end }}">{{ .Name }}</a>
+      {{ $active := cond (eq .URL "/about/") $isAbout (not $isAbout) }}
+      <a href="{{ .URL }}"{{ if $active }} aria-current="page"{{ end }}>{{ .Name }}</a>
     {{ end }}
-  </div>
+  </nav>
 
-  <div style="display: flex; width: 100%; justify-content: space-between; align-items: center;">
-    
-    <div style="flex: 1; display: flex; justify-content: flex-start;">
+  <div class="header-row">
+    <div>
       {{ with .Parent }}
-        <a class="btn btn-square" href="{{ .RelPermalink | default .Site.Home.RelPermalink }}" title="{{ .Title }}">
+        <a class="btn btn-square" href="{{ .RelPermalink | default site.Home.RelPermalink }}" title="{{ .Title }}" aria-label="Indietro: {{ .Title }}">
           <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <path clip-rule="evenodd" fill-rule="evenodd" d="M11.03 3.97a.75.75 0 0 1 0 1.06l-6.22 6.22H21a.75.75 0 0 1 0 1.5H4.81l6.22 6.22a.75.75 0 1 1-1.06 1.06l-7.5-7.5a.75.75 0 0 1 0-1.06l7.5-7.5a.75.75 0 0 1 1.06 0Z"></path>
           </svg>
         </a>
       {{ end }}
     </div>
-
-    <div style="flex: 2; display: flex; justify-content: center;">
-  <img src="/images/logo.png?v=2" alt="Riccio Productions" style="width: 240px; max-width: 100%; height: auto; vertical-align: middle;">
-</div>
-
-    <div style="flex: 1;"></div>
-
+    <a class="logo" href="{{ site.Home.RelPermalink }}">
+      <img src="{{ "images/logo.png" | relURL }}?v=3" alt="Riccio Productions" width="240" height="81" fetchpriority="high">
+    </a>
+    <div></div>
   </div>
-
 </header>
-
-<style>
-  header { margin-bottom: 0px !important; padding-bottom: 0px !important; }
-  main { margin-top: 0px !important; padding-top: 0px !important; }
-
-  hgroup {
-    margin-top: 30px !important; 
-    margin-bottom: 30px !important; 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-  }
-
-  hgroup h1 {
-    font-size: 1.6rem !important; 
-    font-weight: 500 !important;
-    margin: 0px !important; 
-    padding: 0px !important;
-    text-align: center;
-  }
-
-  header ul { margin: 0; padding: 0; }
-  img {
-    -webkit-touch-callout: none !important;
-    -webkit-user-select: none !important;
-    -moz-user-select: none !important;
-    -ms-user-select: none !important;
-    user-select: none !important;
-    -webkit-user-drag: none !important;
-    user-drag: none !important;
-    pointer-events: auto !important;
-  }
-</style>
-
-<script>
-  document.addEventListener('contextmenu', function(e) {
-    if (e.target.tagName === 'IMG') {
-      e.preventDefault();
-    }
-  }, false);
-</script>

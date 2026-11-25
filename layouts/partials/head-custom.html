@@ -1,8 +1,17 @@
 <meta name="google-site-verification" content="Pb1hwTFbmHejsAVXXw1K0qmHlMA29uZL3CKUWiPUKtk" />
-<link rel="icon" href="/favicon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png?v=4">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon.png?v=4">
-<link rel="shortcut icon" href="/favicon.ico?v=4">
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=4">
-
-<link rel="icon" type="image/png" href="/images/favicon.png?v=4">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+{{ if .IsHome }}
+{{ $ig := site.Params.socialIcons.instagram }}
+{{ $schema := dict
+  "@context" "https://schema.org"
+  "@graph" (slice
+    (dict "@type" "WebSite" "name" site.Title "url" site.Home.Permalink "inLanguage" "it")
+    (dict "@type" "Person" "name" "Vincenzo Riccio" "jobTitle" "Fotografo e videomaker"
+      "url" site.Home.Permalink "sameAs" (slice $ig)
+      "worksFor" (dict "@type" "Organization" "name" site.Title)
+      "areaServed" "Cilento, Salerno, Campania")
+  ) }}
+<script type="application/ld+json">{{ $schema | jsonify | safeJS }}</script>
+{{ end }}

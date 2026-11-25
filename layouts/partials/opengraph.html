@@ -1,0 +1,37 @@
+{{- $desc := .Params.meta_description | default .Description | default .Summary | default site.Params.description -}}
+<meta property="og:url" content="{{ .Permalink }}" />
+{{- with or site.Title site.Params.title | plainify }}
+  <meta property="og:site_name" content="{{ . }}" />
+{{- end }}
+{{- with or .Title site.Title site.Params.title | plainify }}
+  <meta property="og:title" content="{{ . }}" />
+{{- end }}
+{{- with $desc | plainify | htmlUnescape }}
+  <meta property="og:description" content="{{ trim . "\n\r\t " }}" />
+{{- end }}
+{{- with or .Params.locale site.Language.LanguageCode }}
+  <meta property="og:locale" content="{{ replace . `-` `_` }}" />
+{{- end }}
+{{- if .IsPage }}
+  <meta property="og:type" content="article" />
+  {{- with .Section }}
+    <meta property="article:section" content="{{ . }}" />
+  {{- end }}
+{{- else }}
+  <meta property="og:type" content="website" />
+{{- end }}
+{{- $images := $.Resources.ByType "image" -}}
+{{- $index := 0 -}}
+{{- range $i, $img := $images }}{{ if index $img.Params "cover" }}{{ $index = $i }}{{ end }}{{ end -}}
+{{- $image := ($images.GetMatch (.Params.featured_image | default "*feature*")) | default (index $images $index) -}}
+{{- $ogImage := "" -}}
+{{- with $image -}}
+  {{- $ogImage = (.Filter (slice images.AutoOrient (images.Process "fit 1600x1600"))).Permalink -}}
+{{- else -}}
+  {{- with site.Params.ogImage }}{{ $ogImage = . | absURL }}{{ end -}}
+{{- end -}}
+{{- with $ogImage }}
+  <meta property="og:image" content="{{ . }}" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="{{ . }}" />
+{{- end }}

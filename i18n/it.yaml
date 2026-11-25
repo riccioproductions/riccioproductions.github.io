@@ -5,6 +5,3 @@ photoCount:
 albumCount:
   other: "{{ .count }} album"
   one: "{{ .count }} album"
-
-viewAll:
-  other: "Vedi tutto"

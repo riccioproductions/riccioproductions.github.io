@@ -2,6 +2,8 @@
 title: "Informazioni"
 date: 2026-02-20
 type: "page"
+layout: "prose"
+meta_description: "Vincenzo Riccio, fotografo e videomaker nel Cilento (Salerno): foto e video su richiesta per privati e attività, shooting personali."
 ---
 
 Riccio Productions è un progetto di fotografia e videomaking, nato dalla voglia di trasformare una passione in qualcosa di concreto.
@@ -15,3 +17,5 @@ Realizzo foto e video su richiesta, sia per privati che per attività, e organiz
 Se ti piace il mio stile o vuoi semplicemente avere più informazioni, puoi contattarmi via [email](mailto:riccio.prod@gmail.com) o su [Instagram](https://www.instagram.com/riccio.productions).
 
 Opero principalmente nel Cilento, in provincia di Salerno, Campania.
+
+{{< cta >}}
